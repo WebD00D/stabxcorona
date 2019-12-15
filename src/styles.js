@@ -34,7 +34,7 @@ export const Pane = styled.div`
       
     ${props =>
       props.showBG
-        ? `min-height: 320px; background-position: top; background-attachment: fixed;`
+        ? `min-height: 320px; background-position: top;`
         : null}
   }
 `;
