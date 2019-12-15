@@ -183,7 +183,13 @@ export const Error = styled.div`
   top: 0px;
   z-index: 2;
 
-  &.error {
+  &.error, &.submitted {
     opacity: 1;
   }
+
+  &.submitted {
+    background-color: #329862;
+  }
+
+
 `;

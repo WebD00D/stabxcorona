@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SplitPane,
   Pane,
@@ -13,9 +13,13 @@ import {
 import Stab from "./stab-logo@2x.png";
 import Corona from "./corona.png";
 
+// import { notification } from "antd";
+// import "antd/dist/antd.css";
+
 function App() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
 
   const maxLengthError = () => {
     const total = message.split(" ");
@@ -40,11 +44,18 @@ function App() {
     return <Error className={cx}>No more than 25 words, please :)</Error>;
   };
 
+  const renderSuccess = () => {
+    const submitted = window.location.search.includes("submitted=true")
+    const cx = submitted ? "submitted" : "";
+    return <Error className={cx}>Submitted! Thank you for your entry.</Error>;
+  };
+
   return (
     <SplitPane>
+      {renderSuccess()}
       {renderError()}
       <Pane>
-        <StabLogo src={Stab} />
+        <a href="httsp://www.stabmag.com"><StabLogo src={Stab} /></a>
         <Content>
           <h1>
             Win The Electric Acid Surfboard Test Boards Piloted by Stephanie
