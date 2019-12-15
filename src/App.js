@@ -60,7 +60,7 @@ function App() {
             your details in below for your chance to win a board crafted by
             Shawn Stüssy, MR, Joel Fitzgerald and more.
           </p>
-          <Form name="contact" method="post">
+          <Form name="contact" method="post" action="/?submitted=true">
             <input type="hidden" name="form-name" value="contest" />
             <FormLabel>Email Address</FormLabel>
             <input
