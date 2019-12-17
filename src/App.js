@@ -8,7 +8,8 @@ import {
   Button,
   Form,
   FormLabel,
-  Error
+  Error,
+  Checkbox
 } from "./styles";
 import Stab from "./stab-logo@2x.png";
 import Corona from "./corona.png";
@@ -19,7 +20,6 @@ import Corona from "./corona.png";
 function App() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
 
   const maxLengthError = () => {
     const total = message.split(" ");
@@ -45,7 +45,7 @@ function App() {
   };
 
   const renderSuccess = () => {
-    const submitted = window.location.search.includes("submitted=true")
+    const submitted = window.location.search.includes("submitted=true");
     const cx = submitted ? "submitted" : "";
     return <Error className={cx}>Submitted! Thank you for your entry.</Error>;
   };
@@ -55,13 +55,15 @@ function App() {
       {renderSuccess()}
       {renderError()}
       <Pane>
-        <a href="httsp://www.stabmag.com"><StabLogo src={Stab} /></a>
+        <a href="httsp://www.stabmag.com">
+          <StabLogo src={Stab} />
+        </a>
         <Content>
           <h1>
             Win The Electric Acid Surfboard Test Boards Piloted by Stephanie
             Gilmore.
           </h1>
-          <p>
+          <p style={{ marginBottom: "6px" }}>
             The Electric Acid Surfboard Test is an exercise in diversity. We
             live in accepting times where no craft is a faux pas, so we decided
             to celebrate by pairing the world’s best surfers with every manner
@@ -70,6 +72,13 @@ function App() {
             thanks to our amigos at Corona, the boards are yours to win. Plug
             your details in below for your chance to win a board crafted by
             Shawn Stüssy, MR, Joel Fitzgerald and more.
+          </p>
+          <p style={{ marginBottom: "6px" }}>
+            Following @stab and @coronaextra_au on Instagram is also a must.
+          </p>
+          <p>
+            T’s and C’s: Entrants must be over the age of 18 (I.d proof will be
+            required to claim prize) and reside in Australia to enter.
           </p>
           <Form name="contact" method="post" action="/?submitted=true">
             <input type="hidden" name="form-name" value="contest" />
@@ -88,6 +97,16 @@ function App() {
               type="text"
               onChange={e => setMessage(e.currentTarget.value)}
             />
+            <Checkbox
+              id="styled-checkbox-1"
+              name="subscribe"
+              type="checkbox"
+              value="subscribe"
+              defaultChecked
+            />
+            <label for="styled-checkbox-1"> Untick if you don't want to receive marketing material from Stab or
+            Corona Australia</label>
+           
             <Button disabled={checkDisabled()}>Submit</Button>
           </Form>
         </Content>

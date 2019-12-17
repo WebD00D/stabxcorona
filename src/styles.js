@@ -28,14 +28,10 @@ export const Pane = styled.div`
   background-repeat: center;
 
   @media (max-width: 972px) {
-
     padding: 32px;
 
-      
     ${props =>
-      props.showBG
-        ? `min-height: 320px; background-position: top;`
-        : null}
+      props.showBG ? `min-height: 320px; background-position: top;` : null}
   }
 `;
 
@@ -50,9 +46,9 @@ export const CoronaLogo = styled.img`
   height: 64px;
 
   @media (max-width: 972px) {
-      top: 16px;
-      right: 16px;
-      height: 32px;
+    top: 16px;
+    right: 16px;
+    height: 32px;
   }
 `;
 
@@ -107,11 +103,12 @@ export const Content = styled.div`
   }
 
   @media (max-width: 972px) {
-      padding-top: 12px;
+    padding-top: 12px;
 
-      input, textarea {
-          width: calc(100% - 32px);
-      }
+    input,
+    textarea {
+      width: calc(100% - 32px);
+    }
   }
 `;
 
@@ -145,6 +142,8 @@ export const Button = styled.button`
   cursor: pointer;
   transition: 0.2s ease;
   line-height: 48px;
+  margin-top: 24px;
+
 
   &:hover {
     transform: scale(1.05);
@@ -183,13 +182,81 @@ export const Error = styled.div`
   top: 0px;
   z-index: 2;
 
-  &.error, &.submitted {
+  &.error,
+  &.submitted {
     opacity: 1;
   }
 
   &.submitted {
     background-color: #329862;
   }
+`;
+
+export const Checkbox = styled.input`
+  position: absolute; // take it out of document flow
+  opacity: 0; // hide it
 
 
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  // Box.
+  & + label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: white;
+  }
+
+  // Box hover
+  &:hover + label:before {
+    background: #f5f5f5;
+  }
+
+  // Box focus
+  &:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  }
+
+  // Box checked
+  &:checked + label:before {
+    background: #000;
+  }
+
+  // Disabled state label.
+  &:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+
+  // Disabled box.
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  // Checkmark. Could be replaced with an image
+  &:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+      4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+  }
 `;
