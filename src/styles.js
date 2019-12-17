@@ -35,6 +35,22 @@ export const Pane = styled.div`
   }
 `;
 
+export const AgeLogo = styled.img`
+  height: 32px;
+  position: absolute;
+  bottom: 32px;
+  right: 24px;
+  height: 64px;
+
+  @media (max-width: 972px) {
+    top: 310px;
+    right: 16px;
+    height: 32px;
+    height: 60px;
+  }
+
+`
+
 export const StabLogo = styled.img`
   height: 32px;
 `;
@@ -42,7 +58,7 @@ export const StabLogo = styled.img`
 export const CoronaLogo = styled.img`
   position: absolute;
   bottom: 32px;
-  right: 64px;
+  right: 84px;
   height: 64px;
 
   @media (max-width: 972px) {

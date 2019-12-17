@@ -9,10 +9,12 @@ import {
   Form,
   FormLabel,
   Error,
-  Checkbox
+  Checkbox,
+  AgeLogo
 } from "./styles";
 import Stab from "./stab-logo@2x.png";
 import Corona from "./corona.png";
+import EighteenUp from './18up.png'
 
 // import { notification } from "antd";
 // import "antd/dist/antd.css";
@@ -113,6 +115,7 @@ function App() {
       </Pane>
       <Pane showBG={true}>
         <CoronaLogo src={Corona} />
+        <AgeLogo src={EighteenUp} />
       </Pane>
     </SplitPane>
   );
