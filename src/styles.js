@@ -195,6 +195,7 @@ export const Error = styled.div`
 export const Checkbox = styled.input`
   position: absolute; // take it out of document flow
   opacity: 0; // hide it
+  left: -999px;
 
 
   & + label {
